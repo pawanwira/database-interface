@@ -27,3 +27,14 @@ While running, the demo prints updates, e.g.,
 [info] Success: Deleted 1 row (id: 49) from Suppliers table
 ```
 Finally, the demo prints the newest version of the tables in the terminal.
+```
+[info] COFFEES table (COF_NAME, SUP_ID, PRICE, SALES, TOTAL):
+[info]   Espresso           98      9.99    1       0
+[info]   Colombian          101     7.99    2       0
+[info]   Colombian_Decaf    101     8.99    0       0
+[info]   French_Roast       150     8.99    0       0
+[info] SUPPLIERS table (SUP_ID, SUP_NAME, STREET, CITY, STATE, ZIP):
+[info]   98     Palo Alto Coffee    El Camino Real      Palo Alto       CA      94305
+[info]   101    Acme, Inc.          99 Market Street    Groundsville    CA      95199
+[info]   150    The High Ground     100 Coffee Lane     Meadows         CA      93966
+```
