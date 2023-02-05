@@ -10,4 +10,20 @@ To run the Docker image inside of a container, run the following command:
 ```
 $ docker run database-interface:1.0
 ```
-While running, the demo prints successful messages (e.g., `Success: Inserted 1 row (name: Espresso) to Coffees table`) or failure messages to the terminal, depending on whether user actions and queries were successful. Finally, the demo prints the newest version of the tables in the terminal.
+While running, the demo prints updates, e.g., 
+```
+[info] Success: Inserted 1 row (name: Acme, Inc.) to Suppliers table
+[info] Success: Inserted 1 row (name: The High Ground) to Suppliers table
+[info] Success: Inserted 1 row (name: Palo Alto Coffee) to Suppliers table
+[info] Success: Inserted 1 row (name: Superior Coffee) to Suppliers table
+[info] Success: Inserted 1 row (name: Espresso) to Coffees table
+[info] Success: Inserted 1 row (name: Colombian_Decaf) to Coffees table
+[info] Success: Inserted 1 row (name: Colombian) to Coffees table
+[info] Success: Inserted 1 row (name: French_Roast) to Coffees table
+[info] Success: Inserted 1 row (name: French_Roast_Decaf) to Coffees table
+[info] Success: Updated 1 row from Coffees table (updated sales of Espresso to 1)
+[info] Success: Updated 1 row from Coffees table (updated sales of Colombian to 2)
+[info] Success: Deleted 1 row (name: French_Roast_Decaf) from Coffees table
+[info] Success: Deleted 1 row (id: 49) from Suppliers table
+```
+Finally, the demo prints the newest version of the tables in the terminal.
