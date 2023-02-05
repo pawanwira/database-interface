@@ -39,8 +39,8 @@ object DatabaseInterfaceDemo extends App {
     }.flatMap { _ =>
 
       // Print updated COFFEES and SUPPLIERS tables
-      dbi.printCoffeesTable()
       dbi.printSuppliersTable()
+      dbi.printCoffeesTable()
 
     }
     Await.result(f, Duration.Inf)
