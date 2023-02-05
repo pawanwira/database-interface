@@ -10,4 +10,4 @@ To run the Docker image inside of a container, run the following command:
 ```
 $ docker run database-interface:1.0
 ```
-While running, the demo prints successful messages (e.g., "Success: Inserted 1 row (name: Espresso) to Coffees table") or failure messages to the terminal, depending on whether user actions and queries were successful. Finally, the demo prints the newest version of the tables in the terminal.
+While running, the demo prints successful messages (e.g., `Success: Inserted 1 row (name: Espresso) to Coffees table`) or failure messages to the terminal, depending on whether user actions and queries were successful. Finally, the demo prints the newest version of the tables in the terminal.
