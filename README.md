@@ -10,7 +10,7 @@ To run the Docker image inside of a container, run the following command:
 ```
 $ docker run database-interface:1.0
 ```
-While running, the demo prints updates, e.g., 
+While running, the demo prints updates to the terminal, e.g., 
 ```
 [info] Success: Inserted 1 row (name: Acme, Inc.) to Suppliers table
 [info] Success: Inserted 1 row (name: The High Ground) to Suppliers table
