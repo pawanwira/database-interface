@@ -6,32 +6,39 @@ import scala.util.{Success, Failure}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.Duration
 
+// The database interface class
 class DatabaseInterface() {
   val db = Database.forConfig("h2mem1")
 
   // The query interface for the Suppliers table
   val suppliers: TableQuery[Suppliers] = TableQuery[Suppliers]
 
-  // the query interface for the Coffees table
+  // The query interface for the Coffees table
   val coffees: TableQuery[Coffees] = TableQuery[Coffees]
 
+  // Equivalent SQL code:
+  // INSERT INTO COFFEES (COF_NAME, SUP_ID, PRICE, SALES, TOTAL)
+  // VALUES (name, supID, price, sales, total)
   def insertCoffee(name: String, supID: Int, price: Double, sales: Int, total: Int): Future[Int] = {
     val insertAction = coffees += (name, supID, price, sales, total)
     val future = db.run(insertAction)
     val sql = insertAction.statements.head
     future.onComplete {
-      case Success(idx) => println("SQL (simplified) compiled: " + sql + "\nSuccess: Inserted " + idx + " row to Coffees table \n")
+      case Success(idx) => println("Success: Inserted " + idx + " row (name: " + name + ") to Coffees table")
       case Failure(t) => println("Failure: " + t.getMessage)
     }
     return future
   }
 
+  // Equivalent SQL code:
+  // INSERT INTO SUPPLIERS (SUP_ID, SUP_NAME, STREET, CITY, STATE, ZIP)
+  // VALUES (id, name, street, city, street, zip)
   def insertSupplier(id: Int, name: String, street: String, city: String, state: String, zip: String): Future[Int] = {
     val insertAction = suppliers += (id, name, street, city, state, zip)
     val future = db.run(insertAction)
     val sql = insertAction.statements.head
     future.onComplete {
-      case Success(idx) => println("SQL (simplified) compiled: " + sql + "\nSuccess: Inserted " + idx + " row to Suppliers table \n")
+      case Success(idx) => println("Success: Inserted " + idx + " row (name: " + name + ") to Suppliers table")
       case Failure(t) => println("Failure: " + t.getMessage)
     }
     return future
@@ -42,7 +49,7 @@ class DatabaseInterface() {
     val future = db.run(updateAction)
     val sql = updateAction.statements.head
     future.onComplete {
-      case Success(idx) => println("SQL (simplified) compiled: " + sql + "\nSuccess: Updated " + idx + " row from Coffees table \n")
+      case Success(idx) => println("Success: Updated " + idx + " row from Coffees table (updated sales of " + name + " to " + newSales + ")")
       case Failure(t) => println("Failure: " + t.getMessage)
     }
     return future
@@ -53,18 +60,18 @@ class DatabaseInterface() {
     val future = db.run(deleteAction)
     val sql = deleteAction.statements.head
     future.onComplete {
-      case Success(idx) => println("SQL (simplified) compiled: " + sql + "\nSuccess: Deleted " + idx + " row from Coffees table \n")
+      case Success(idx) => println("Success: Deleted " + idx + " row (name: " + name + ") from Coffees table")
       case Failure(t) => println("Failure: " + t.getMessage)
     }
     return future
   }
 
   def deleteSupplier(id: Int): Future[Int] = {
-    val deleteAction = suppliers.filter(_.id == id).delete
+    val deleteAction = suppliers.filter(_.id === id).delete
     val future = db.run(deleteAction)
     val sql = deleteAction.statements.head
     future.onComplete {
-      case Success(idx) => println("SQL (simplified) compiled: " + sql + "\nSuccess: Deleted " + idx + " row from Coffees table \n")
+      case Success(idx) => println("Success: Deleted " + idx + " row (id: " + id + ") from Suppliers table")
       case Failure(t) => println("Failure: " + t.getMessage)
     }
     return future

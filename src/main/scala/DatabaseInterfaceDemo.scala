@@ -12,7 +12,7 @@ object DatabaseInterfaceDemo extends App {
 
     val dbi = new DatabaseInterface()
     val setupAction = (dbi.suppliers.schema ++ dbi.coffees.schema).create
-    val setupFuture: Future[Unit] = db.run(setupAction)
+    val setupFuture = db.run(setupAction)
     val f = setupFuture.flatMap { _ =>
 
       dbi.insertSupplier(101, "Acme, Inc.", "99 Market Street", "Groundsville", "CA", "95199")
