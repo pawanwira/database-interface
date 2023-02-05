@@ -26,7 +26,7 @@ While running, the demo prints updates to the terminal, e.g.,
 [info] Success: Deleted 1 row (name: French_Roast_Decaf) from Coffees table
 [info] Success: Deleted 1 row (id: 49) from Suppliers table
 ```
-Finally, the demo prints the newest version of the tables in the terminal.
+Finally, the demo prints the newest version of the tables in the terminal, e.g.,
 ```
 [info] COFFEES table (COF_NAME, SUP_ID, PRICE, SALES, TOTAL):
 [info]   Espresso           98      9.99    1       0
