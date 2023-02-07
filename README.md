@@ -2,7 +2,7 @@
 ### Introduction
 This project uses Scala to create a database interface and application, which can then be built and run with Docker. `src/main/scala/DatabaseInterface.scala` provides functions that users can call to insert, update, and delete data via SQL (via Slick) in two database tables: `SUPPLIERS` and `COFFEES`. For more information about the SQL statements involved, please feel free to read the documentation in `src/main/scala/DatabaseInterface.scala`. As a demo, `src/main/scala/DatabaseInterfaceDemo.scala` demonstrates how users can interact with the tables through the interface, e.g., insert suppliers, insert coffees, update coffee sales, delete suppliers, and delete coffees.
 ### Run the Database Interface Demo
-To build the Docker image, run following command:   
+To build the Docker image, run the following command:   
 ```
 $ docker build -t database-interface:1.0 .
 ```  
